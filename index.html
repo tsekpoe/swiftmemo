@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="shortcut icon" href="icon - SwiftMemo (compressed).png" type="image/x-icon">
+    <title>SwiftMemo - Beta</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <input type="text" id="search-bar" class="search-bar" oninput="liveSearch()" placeholder="Search notes...">
+            <button class="newNoteBtn" onclick="openAddNoteModal()">
+                <span class="material-symbols-outlined">note_add</span>
+            </button>
+        </header>
+        
+        <main>
+            <ul id="notes-list">                
+                <!-- Notes will be dynamically added here -->
+            </ul>
+            <span style="font-size: small;">Click the <span class="material-symbols-outlined" style="font-size: small;">note_add</span> icon at the top right to add a note</span>
+        </main>
+
+        <br><br><hr>
+        <button id="clear-storage-btn"><span class="material-symbols-outlined">delete_forever</span></button>
+        <p style="font-size: small;">Clear all app data!</p>
+    </div>
+
+<!-- Add Note Modal -->
+<div id="add-note-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeAddNoteModal()">&times;</span>
+        <h2>New Note</h2>
+        <input type="text" id="note-title" placeholder="TITLE" autocomplete="off">
+        <br>
+        <textarea id="note-content" placeholder="Write note..." class="expanding-textarea" autocomplete="off"></textarea>
+        <br>
+        <button onclick="addNote()" class="addNoteBtn">Done</button>
+    </div>
+</div>
+
+
+<!-- Show Note Modal -->
+<div id="show-note-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeShowNoteModal()">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-content"></p>
+        <br>
+        <button id="delete-note-btn" class="deleteNoteBtn" onclick="deleteNoteWithConfirmation()"><span class="material-symbols-outlined">delete_forever</span></button>
+    </div>
+</div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
